@@ -20,8 +20,6 @@ class SongEval:
         self.checkpoint_path = (Path(checkpoint_path) if checkpoint_path else DEFAULT_CKPT_PATH)
         self.config_path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
         self.device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-        print(self.checkpoint_path)
-        print(self.config_path)
         self._setup_models()
 
     @torch.no_grad()

@@ -1,0 +1,2 @@
+recursive-include SongEval *.yaml
+recursive-include SongEval *.safetensors

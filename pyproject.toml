@@ -13,3 +13,6 @@ dependencies = ["hydra-core", "muq", "omegaconf", "torch", "torchaudio"]
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.setuptools]
+include-package-data = true

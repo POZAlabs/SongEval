@@ -10,7 +10,7 @@ from omegaconf import OmegaConf
 from safetensors.torch import load_file
 from tqdm import tqdm
 
-PATH = Path(__file__).parent.resolve()
+PATH = Path(__file__).parent.parent.resolve()
 DEFAULT_CKPT_PATH = PATH / "ckpt" / "model.safetensors"
 DEFAULT_CONFIG_PATH = PATH / "config.yaml"
 

@@ -1,0 +1,15 @@
+# /SongEval/pyproject.toml
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=70", "wheel"]
+
+[project]
+description = "SongEval path edited"
+name = "SongEval"
+version = "0.1.0-dev"
+
+dependencies = ["hydra-core", "muq", "omegaconf", "torch", "torchaudio"]
+
+[tool.setuptools.packages.find]
+where = ["."]

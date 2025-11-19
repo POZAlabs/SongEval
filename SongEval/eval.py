@@ -72,11 +72,9 @@ class SongEval:
     def evaluate(self, audio_paths: list[str]) -> dict:
         results = {}
         for file_path in tqdm(audio_paths, desc="Evaluating with SongEval"):
-            path_obj = Path(file_path)
-            file_id = path_obj.stem
-            scores = self.evaluate_file(str(path_obj))
-            if scores:
-                results[file_id] = scores
+            scores = self.evaluate_file(file_path)
+            results[file_path] = scores
+
         return results
 
     def run_evaluation(self, input_path: str, output_dir: str):
@@ -97,7 +95,11 @@ class SongEval:
                 f"Input path does not exist or is not a valid file/directory: {input_path}"
             )
 
-        results = self.evaluate(audio_files)
+        scores_list = self.evaluate(audio_files)
+        results = {}
+        for file_path, scores in zip(audio_files, scores_list):
+            if scores:
+                results[file_path] = scores
 
         result_path = output_dir / "songeval_results.json"
         with open(result_path, "w", encoding="utf-8") as f:
